@@ -1,0 +1,28 @@
+.offer-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.offer-details-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.offer-details{
+    display: flex;
+}
+
+.offer-title{
+    font-weight: 500;
+}
+
+.offer-element{
+    border:1px solid #cecece;
+    border-radius: 5px;
+    width: 600px;
+    padding: 10px;
+    -webkit-box-shadow: 8px 8px 13px -18px rgba(66, 68, 90, 1);
+-moz-box-shadow: 8px 8px 13px -18px rgba(66, 68, 90, 1);
+box-shadow: 8px 8px 13px -18px rgba(66, 68, 90, 1);
+}

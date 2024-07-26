@@ -1,0 +1,6 @@
+<div class="langFilter" (click)="onClick($event)">
+    <div class="filter-container" [ngClass]="clicked ? 'active' : ''">
+        <img [src]="imgSrc">
+    </div>
+    <span>{{title}}</span>
+</div>

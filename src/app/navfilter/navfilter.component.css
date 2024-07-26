@@ -1,0 +1,8 @@
+.navfilter-container{
+    display: flex;
+    align-items: baseline;
+}
+
+#searchInput{
+    max-width: 210px;
+}
