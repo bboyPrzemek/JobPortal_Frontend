@@ -1,50 +1,11 @@
-<joboffer
-title="koko"
-location="koszalin"
-companyName="abc">
-</joboffer>
-<joboffer
-title="koko"
-location="koszalin"
-companyName="abc">
-</joboffer>
-<joboffer
-title="koko"
-location="koszalin"
-companyName="abc">
-</joboffer>
-<joboffer
-title="koko"
-location="koszalin"
-companyName="abc">
-</joboffer>
-<joboffer
-title="koko"
-location="koszalin"
-companyName="abc">
-</joboffer>
-<joboffer
-title="koko"
-location="koszalin"
-companyName="abc">
-</joboffer>
-<joboffer
-title="koko"
-location="koszalin"
-companyName="abc">
-</joboffer>
-<joboffer
-title="koko"
-location="koszalin"
-companyName="abc">
-</joboffer>
-<joboffer
-title="koko"
-location="koszalin"
-companyName="abc">
-</joboffer>
-<joboffer
-title="koko"
-location="koszalin"
-companyName="abc">
-</joboffer>
+
+<div *ngFor="let offer of jobOffers" class="offer-container">
+    <joboffer
+        title={{offer.title}}
+        location="{{offer.location.city}}"
+        salaryMin="{{offer.salaryMin}}"
+        salaryMax="{{offer.salaryMax}}"
+        companyName={{offer.user.displayName}}>
+    </joboffer>
+</div>
+

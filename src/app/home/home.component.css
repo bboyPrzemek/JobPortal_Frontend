@@ -1,0 +1,80 @@
+.navbar{
+    border-bottom: 1px solid #e9e9e9;
+    width: 100%;
+   display: block;
+}
+
+.nav-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1280px;
+    margin: auto;
+}
+
+.nav-btn-container button{
+    margin-inline: 5px;
+}
+
+.logo{
+    height: 24px;
+    margin-left: 5px;
+}
+
+.header-container{
+    background-color: #5B19DC;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.header{
+    margin:auto;
+    max-width: 1280px;
+    display: flex;
+    align-items: center;
+}
+
+.filters-container{
+    background-color: #5B19DC;
+    padding-bottom: 30px;
+}
+
+.filters{
+    max-width: 1280px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.offers{
+    max-width: 1280px;
+    margin: auto;
+}
+
+h1{
+    font-family: "Noto Sans", sans-serif;
+    font-size: 50px;
+    font-weight: 900;
+    margin-right: 20px;
+}
+
+h5{
+    font-size: 25px;
+}
+
+.filter{
+    width: 40%;
+}
+
+.filter:last-child{
+    width:16%;
+}
+
+.filter:last-child button{
+    width:100%;
+}
+
+.h50{
+    height: 50px !important;
+}
+

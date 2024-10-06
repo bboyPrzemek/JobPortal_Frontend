@@ -1,0 +1,39 @@
+<div class="main">
+  <div class="wrapper">
+    <div class="navbar">
+      <div class="nav-container">
+        <div>
+          <img class="logo" src="/assets/images/logo.png">
+        </div>
+        <div class="nav-btn-container">
+          <button class="btn btn-light">Post a Job</button>
+          <button class="btn btn-secondary">Sign In</button>
+        </div>
+      </div>
+    </div>
+    <div class="header-container">
+      <div class="header">
+        <h1>IT Job board </h1>
+        <h5>Know more, choose better</h5>
+      </div>
+    </div>
+    <div class="filters-container">
+      <div class="filters">
+        <div class="filter">
+            <input type="text" [(ngModel)]="searchKey" class="form-control h50" placeholder="Search" id="searchInput">
+        </div>
+
+        <div class="filter">
+            <city-search></city-search>
+        </div>
+        <div class="filter">
+            <button type="button" class="btn btn-outline-light h50">Filters</button>
+        </div>
+     
+      </div>
+    </div>
+  </div>
+  <div class="offers">
+    <jobofferlist [searchKey]="searchKey"></jobofferlist>
+  </div>
+</div>
