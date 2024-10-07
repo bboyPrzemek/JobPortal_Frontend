@@ -78,3 +78,16 @@ h5{
     height: 50px !important;
 }
 
+.active{
+    display: block;
+    opacity: 1;
+}
+
+.modal label{
+    display: block;
+}
+
+.flex{
+    justify-content: space-between;
+    display: flex;
+}
