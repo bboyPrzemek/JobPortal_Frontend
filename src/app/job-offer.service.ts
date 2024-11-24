@@ -8,16 +8,14 @@ export class JobOfferService {
 
   private url = 'http://localhost:8080';
 
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private http: HttpClient) {}
 
   getJobOffers(){
     return this.http.get<any>(this.url);
   }
 
-  searchOffers(title : String){
-    return this.http.get<any>(this.url + "/search?title=" + title);
+  searchOffers(queryParams : String){
+    return this.http.get<any>(this.url + "/search?" + queryParams);
   }
 
 }

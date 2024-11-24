@@ -14,4 +14,6 @@ export class JobofferComponent {
   @Input() imgSrc = '';
   @Input() salaryMin = '';
   @Input() salaryMax = '';
+  @Input() position = '';
+  @Input() worktype = '';
 }

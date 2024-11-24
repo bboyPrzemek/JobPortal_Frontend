@@ -63,14 +63,19 @@ h5{
 }
 
 .filter{
-    width: 40%;
+    width: 28%;
 }
 
-.filter:last-child{
-    width:16%;
+.filter:nth-child(3){
+    width:10%;
 }
 
-.filter:last-child button{
+.filter:nth-child(4){
+    width:30%;
+}
+
+
+.filter button{
     width:100%;
 }
 
