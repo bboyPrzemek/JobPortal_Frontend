@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class JobOfferService {
 
-  private url = 'http://localhost:8080';
+  private url = 'http://localhost:8080/';
 
   constructor(private http: HttpClient) {}
 
@@ -14,8 +14,11 @@ export class JobOfferService {
     return this.http.get<any>(this.url);
   }
 
-  searchOffers(queryParams : String){
-    return this.http.get<any>(this.url + "/search?" + queryParams);
+  searchOffers(queryParams ?: String){
+    if (queryParams === undefined){
+      return this.http.get<any>(this.url);
+    }else{
+      return this.http.get<any>(this.url + "?" + queryParams);
+    }
   }
-
 }

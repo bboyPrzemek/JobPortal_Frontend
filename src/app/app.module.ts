@@ -6,21 +6,33 @@ import { RouterOutlet } from '@angular/router';
 import { JobofferComponent } from './joboffer/joboffer.component';
 import { JobofferlistComponent } from './jobofferlist/jobofferlist.component';
 import { HomeComponent } from './home/home.component';
+import {Routing} from './routing/routing.module';
+
+
 
 @NgModule({
   declarations: [
       AppComponent
   ],
   imports: [
-    RouterOutlet,
+    Routing,
     JobofferComponent,
     JobofferlistComponent,
     BrowserModule,
     HttpClientModule,
-    HomeComponent
+    HomeComponent,
+    RouterOutlet
+
 ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
 }
+
+
+
+
+
+
+

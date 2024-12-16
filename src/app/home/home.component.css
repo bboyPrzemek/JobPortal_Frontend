@@ -96,3 +96,30 @@ h5{
     justify-content: space-between;
     display: flex;
 }
+
+.sort-container{
+    max-width: 1280px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.sort-container select{
+    width: 200px;
+}
+
+.pagination{
+    max-width: 1280px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.paging-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+}
