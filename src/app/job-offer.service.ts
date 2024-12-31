@@ -16,9 +16,9 @@ export class JobOfferService {
 
   searchOffers(queryParams ?: String){
     if (queryParams === undefined){
-      return this.http.get<any>(this.url);
+      return this.http.get<any>(this.url, {withCredentials: true});
     }else{
-      return this.http.get<any>(this.url + "?" + queryParams);
+      return this.http.get<any>(this.url + "?" + queryParams, {withCredentials:true});
     }
   }
 }

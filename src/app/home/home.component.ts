@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CitySearchComponent } from '../city-search/city-search.component';
 import { JobofferlistComponent } from '../jobofferlist/jobofferlist.component';
 import { JobOfferService } from '../job-offer.service';
 import { FormsModule, NgForm } from '@angular/forms';
@@ -10,7 +9,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 @Component({
   selector: 'home',
   standalone: true,
-  imports: [CitySearchComponent, JobofferlistComponent, FormsModule, CommonModule, RouterModule],
+  imports: [ JobofferlistComponent, FormsModule, CommonModule, RouterModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -39,9 +38,7 @@ export class HomeComponent implements OnInit {
   onSort() {
     const currentParams = {...this.router.routerState.snapshot.root.queryParams};
     let params = this.removeEmptyParams(this.mergeObj(currentParams, this.getSortParams()));
-    this.router.navigate([''], {
-      queryParams: params
-    });
+    this.router.navigate([''], { queryParams: params });
   }
 
   mergeObj(obj1: Object, obj2: Object) {
@@ -65,6 +62,10 @@ export class HomeComponent implements OnInit {
   removeEmptyParams(obj: any) {
     Object.keys(obj).forEach((key) => (obj[key] === "") && delete obj[key]);
     return obj;
+  }
+
+  removeParam(){
+
   }
 
   getSortParams() {
