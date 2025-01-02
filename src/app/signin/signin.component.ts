@@ -17,21 +17,13 @@ export class SigninComponent {
 
   constructor(private loginService : LoginService){}
 
-
   onSubmit(){
     let params = new URLSearchParams();
     params.set('username', this.username);
     params.set('password', this.password);
-
-    console.log(this.username);
-    console.log(this.password)
-
-    console.log(params.toString());
-    
+  
     this.loginService.login(params.toString()).subscribe(response=>{
       console.log(response.headers);
     });
-
   }
-
 }

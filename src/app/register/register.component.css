@@ -1,5 +1,6 @@
-.login-container{
+.registration-container{
     margin-top: 100px;
+    width: 500px;
 }
 
 .wrapper{
@@ -8,7 +9,7 @@
     justify-content: center;
 }
 
-input[type=submit]{
+input[type=submit] {
     margin-top:10px;
     width: 100%;
 }
