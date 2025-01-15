@@ -23,7 +23,7 @@ export class SigninComponent {
     params.set('password', this.password);
   
     this.loginService.login(params.toString()).subscribe(response=>{
-      console.log(response.headers);
+      console.log(response);
     });
   }
 }

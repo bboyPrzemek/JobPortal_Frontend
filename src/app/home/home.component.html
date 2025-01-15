@@ -3,10 +3,10 @@
     <div class="navbar">
       <div class="nav-container">
         <div>
-          <img class="logo" src="/assets/images/logo.png">
+          <a routerLink="/"><img class="logo" src="/assets/images/logo.png"></a>
         </div>
         <div class="nav-btn-container">
-        
+          <button  [routerLink]="['admin/settings']" class="btn btn-light">Admin Panel</button>
           <button  class="btn btn-light">Post a Job</button>
           <button [routerLink]="['login']" class="btn btn-secondary">Sign In</button>
           <button [routerLink]="['register']" class="btn btn-dark">Register</button>

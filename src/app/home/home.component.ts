@@ -64,10 +64,6 @@ export class HomeComponent implements OnInit {
     return obj;
   }
 
-  removeParam(){
-
-  }
-
   getSortParams() {
     const s = this.sort.split('_');
     return {
