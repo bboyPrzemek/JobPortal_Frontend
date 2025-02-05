@@ -5,11 +5,13 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { SearchModel } from '../search-model';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { NavigationComponent } from "../navigation/navigation.component";
+
 
 @Component({
   selector: 'home',
   standalone: true,
-  imports: [ JobofferlistComponent, FormsModule, CommonModule, RouterModule],
+  imports: [JobofferlistComponent, FormsModule, CommonModule, RouterModule, NavigationComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -55,6 +57,7 @@ export class HomeComponent implements OnInit {
 
   search(queryParams: any) {
     this.jobOfferService.searchOffers(new URLSearchParams(queryParams).toString()).subscribe(result => {
+      console.log(result);
       this.jobOffers = result;
     });
   }
