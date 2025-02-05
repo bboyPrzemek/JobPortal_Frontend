@@ -21,4 +21,8 @@ export class JobOfferService {
       return this.http.get<any>(this.url + "?" + queryParams, {withCredentials:true});
     }
   }
+
+  createJobOffer(body: any){
+    return this.http.post<any>(this.url + "create", body, {withCredentials : true, responseType: 'text' as 'json'});
+  }
 }
