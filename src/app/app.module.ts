@@ -4,10 +4,8 @@ import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {Routing} from './routing/routing.module';
-import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
 
 
 @NgModule({
@@ -20,8 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     RouterOutlet,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule
-
+    BrowserAnimationsModule,
 ],
   providers: [],
   bootstrap: [AppComponent]
