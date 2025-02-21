@@ -23,6 +23,6 @@ export class JobOfferService {
   }
 
   createJobOffer(body: any){
-    return this.http.post<any>(this.url + "create", body, {withCredentials : true, responseType: 'text' as 'json'});
+    return this.http.post<any>(this.url + "create", body, {withCredentials : true, responseType: 'text' as 'json', observe: 'response'});
   }
 }

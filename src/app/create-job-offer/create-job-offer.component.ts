@@ -1,53 +1,101 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { JobOfferService } from '../job-offer.service';
-import { Router } from '@angular/router';
+import { JobOfferService} from '../job-offer.service';
+import { CommonModule} from '@angular/common';
+import { JobOfferModel } from '../job-offer-model';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { ToastrService } from 'ngx-toastr';
+
 
 
 @Component({
-  selector: 'app-create-job-offer',
-  standalone: true,
-  imports: [FormsModule],
-  templateUrl: './create-job-offer.component.html',
-  styleUrl: './create-job-offer.component.css'
+    selector: 'app-create-job-offer',
+    standalone: true,
+    imports: [FormsModule, CommonModule, NgMultiSelectDropDownModule],
+    templateUrl: './create-job-offer.component.html',
+    styleUrl: './create-job-offer.component.css',
 })
-export class CreateJobOfferComponent {
+export class CreateJobOfferComponent implements OnInit{
 
-  title : String = '';
-  details : String = '';
-  salaryMin : number = 0;
-  salaryMax : number = 0;
-  location : String = '';
-  experiences : [] = [];
-  technologies : [] = [];
-  worktypes : [] = [];
-  position: String = '';
+  jobOfferModel = new JobOfferModel();
+  dropdownList: any = [];
+  selectedItems: any = [];
+  dropdownSettings = {};
+  validationMessages = {
+    required: 'This field is required.',
+  };
 
-  constructor(private jobOfferService:JobOfferService, private router : Router){}
+  ngOnInit() {
 
+    this.dropdownList = {
+        technologies: [
+          {
+            id: 1,
+            value: 'Java'
+          },
+          {
+            id: 2,
+            value: 'Salesforce'
+          }
+        ],
 
-  onSubmit(form:NgForm){
-    console.log(form.value)
-    this.jobOfferService.createJobOffer(form.value).subscribe(response=>{
-      if (response == "Created"){
-        alert("created");
-        this.clearFormData();
-    }
-  },(error)=> {
-      alert(error.error);
-    });
+        worktypes: [
+          {
+            id: 1,
+            value: 'Remote'
+          },
+          {
+            id: 2,
+            value: 'Hybrid'
+          },
+          {
+            id: 3,
+            value: 'Office'
+          }
+        ],
 
+        experiences: [
+          {
+            id: 1,
+            value: 'Junior'
+          },
+          {
+            id: 2,
+            value: 'Mid'
+          },
+          {
+            id: 3,
+            value: 'Senior'
+          }
+        ]
+      };
+
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: 'id',
+      textField: 'value',
+      selectAllText: 'Select All',
+      unSelectAllText: 'Deselect All',
+      itemsShowLimit: 3,
+      allowSearchFilter: true
+    };
   }
 
-  clearFormData(){
-    this.title = '';
-    this.details = '';
-    this.salaryMin  = 0;
-    this.salaryMax  = 0;
-    this.location  = '';
-    this.experiences = [];
-    this.technologies  = [];
-    this.worktypes  = [];
-    this.position = '';
+  constructor(private jobOfferService: JobOfferService, private toast : ToastrService) { }
+
+
+  showSuccess() {
+    //this.toast.success('Hello world!', 'Toastr fun!');
+  }
+  onSubmit(form: NgForm) {
+    console.log(form.value)
+    this.jobOfferService.createJobOffer(form.value).subscribe(response => {
+      if (response.status == 201) {
+       this.toast.success('Success');
+        form.resetForm();
+      }
+    }, (error) => {
+     this.toast.error(error);
+    });
   }
 }

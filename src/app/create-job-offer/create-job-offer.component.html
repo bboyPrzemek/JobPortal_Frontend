@@ -4,29 +4,59 @@
         <h5>Create Offer</h5>
       </div>
     </div>
-    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <form #form="ngForm" (ngSubmit)="form.valid && onSubmit(form)">
       <div class="row">
         <div class="col-12 col-md-12">
-          <label for="title">Title</label>
-          <input type="text" name="title" id="title" [(ngModel)] ="title" class="form-control">
+          <label for="title" class="required">Title</label>
+          <span class="text-danger" *ngIf="(title.touched || form.submitted) && title.errors?.['required']">
+            {{validationMessages.required}}
+          </span>
+          <input type="text" id="title" [(ngModel)] ="jobOfferModel.title" name="title" class="form-control" required title #title="ngModel"/>
         </div>
         <div class="col-12 col-md-12">
-          <label for="details">Details</label>
-          <textarea class="form-control" name="details" id="exampleFormControlTextarea1" rows="10" [(ngModel)]="details"></textarea>
+          <label for="details" class="required">Details</label>
+          <span class="text-danger" *ngIf="(details.touched || form.submitted) && details.errors?.['required']">
+            {{validationMessages.required}}
+          </span>
+          <textarea class="form-control" name="details" id="details" rows="10" #details="ngModel" [(ngModel)]="jobOfferModel.details" required></textarea>
         </div>
       </div>
       <div class="row">
         <div class="col-12 col-md-3">
-          <label for="salaryMin">Salary Min:</label>
-          <input type="number" [(ngModel)]="salaryMin" name="salaryMin" id="salaryMin" class="form-control">
+          <label for="salaryMin" class="required">Salary Min:</label>
+          <span class="text-danger" *ngIf="(salaryMin.touched || form.submitted) && salaryMin.errors?.['required']">
+            {{validationMessages.required}}
+          </span>
+          <select class="form-select" name="salaryMin"  #salaryMin="ngModel" [(ngModel)] = "jobOfferModel.salaryMin" required>
+            <option value="1000">1000</option>
+            <option value="2000">5000</option>
+            <option value="5000">10000</option>
+            <option value="7000">15000</option>
+            <option value="10000">20000</option>
+            <option value="15000">25000</option>
+          </select>
         </div>
         <div class="col-12 col-md-3">
-          <label for="salaryMax">Salary Max:</label>
-          <input type="number" name="salaryMax" id="salaryMax" [(ngModel)]="salaryMax" class="form-control">
+          <label for="salaryMax" class="required">Salary Max:</label>
+          <span class="text-danger" *ngIf="(salaryMax.touched || form.submitted) && salaryMax.errors?.['required']">
+            {{validationMessages.required}}
+          </span>
+          <select class="form-select" name="salaryMax"  #salaryMax="ngModel" [(ngModel)] = "jobOfferModel.salaryMax" required>
+            <option value="1000">1000</option>
+            <option value="5000">5000</option>
+            <option value="10000">10000</option>
+            <option value="15000">15000</option>
+            <option value="20000">20000</option>
+            <option value="20000">25000</option>
+            <option value="20000">30000</option>
+          </select>
         </div>
         <div class="col-12 col-md-6">
-          <label for="salaryMax">Location</label>
-          <select class="form-select h50" name="location"  name="location" [(ngModel)] = "location">
+          <label for="salaryMax" class="required">Location</label>
+          <span class="text-danger" *ngIf="(location.touched || form.submitted) && location.errors?.['required']">
+            {{validationMessages.required}}
+          </span>
+          <select class="form-select h50" name="location"  #location="ngModel" [(ngModel)] = "jobOfferModel.location" required>
             <option value="Koszalin">Koszalin</option>
             <option value="Warszawa">Warszawa</option>
             <option value="Poznań">Poznań</option>
@@ -39,41 +69,60 @@
         </div>
         <div class="row">
           <div class="col-12 col-md-3">
-            <label for="technology">Technology</label>
-            <select class="form-select" id="technology" name="technologies" [(ngModel)] = "technologies" multiple>
-              <option value="Java">Java</option>
-              <option value="Salesforce">Salesforce</option>
-            </select>
+            <label for="technology" class="required">Technology</label>
+            <span class="text-danger" *ngIf="(technologies.touched || form.submitted) && technologies.errors?.['required']">
+              {{validationMessages.required}}
+            </span>
+            <ng-multiselect-dropdown
+            [settings]="dropdownSettings"
+            [data]="dropdownList.technologies"
+            [ngModel] = "jobOfferModel.technologies"
+            name="technologies"
+            #technologies="ngModel"
+            required>
+          </ng-multiselect-dropdown>
           </div>
           <div class="col-12 col-md-3">
-            <label for="experience">Experience</label>
-            <select class="form-select" id="experience" name="experiences" [(ngModel)]="experiences" multiple>
-              <option value="Junior">Junior</option>
-              <option value="Mid">Mid</option>
-              <option value="Senior">Senior</option>
-            </select>
+            <label for="experience" class="required">Experience</label>
+            <span class="text-danger" *ngIf="(experiences.touched || form.submitted) && experiences.errors?.['required']">
+              {{validationMessages.required}}
+            </span>
+            <ng-multiselect-dropdown
+            [settings]="dropdownSettings"
+            [data]="dropdownList.experiences"
+            [ngModel] = "jobOfferModel.experiences"
+            name="experiences"
+            #experiences="ngModel"
+            required>
+          </ng-multiselect-dropdown>
+          </div>
+          <div class="col-12 col-md-3">
+            <label for="work_type" class="required">Work type</label>
+            <span class="text-danger" *ngIf="(worktypes.touched || form.submitted) && worktypes.errors?.['required']">
+              {{validationMessages.required}}
+            </span>
+            <ng-multiselect-dropdown
+              [settings]="dropdownSettings"
+              [data]="dropdownList.worktypes"
+              [ngModel] = "jobOfferModel.worktypes"
+              name="worktypes"
+              #worktypes="ngModel"
+              required>
+            </ng-multiselect-dropdown>
           </div>
 
           <div class="col-12 col-md-3">
-            <label for="work_type">Work type</label>
-              <select class="form-select" id="work_type" name="worktypes" [(ngModel)]="worktypes" multiple>
-                <option value="Remote">Remote</option>
-                <option value="Hybrid">Hybrid</option>
-                <option value="Office">Office</option>
-              </select>
-          </div>
-
-          <div class="col-12 col-md-3">
-            <label for="position">Position</label>
-            <select class="form-select" id="position" name="position" [(ngModel)]="position">
+            <label for="position" class="required">Position</label>
+            <span class="text-danger" *ngIf="(position.touched || form.submitted) && position.errors?.['required']">
+              {{validationMessages.required}}
+            </span>
+            <select class="form-select" id="position" name="position" #position="ngModel" [(ngModel)]="jobOfferModel.position" required>
               <option value="Frontend">Frontend</option>
               <option value="Backend">Backend</option>
               <option value="Fullstack">Fullstack</option>
             </select>
           </div>
-
         </div>
-    
       <div class="footer">
         <input type="submit" value="Save" id="save" class="btn btn-primary login-btn">
       </div>
