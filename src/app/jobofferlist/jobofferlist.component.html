@@ -1,11 +1,15 @@
 
 <div *ngFor="let offer of jobOffers" class="offer-container">
     <joboffer
-        title={{offer.title}}
-        location="{{offer.location.city}}"
-        salaryMin="{{offer.salaryMin}}"
-        salaryMax="{{offer.salaryMax}}"
-        companyName={{offer.user.displayName}}>
+        [title]=offer.title
+        [location]="offer.location.city"
+        [salaryMin]="offer.salaryMin"
+        [salaryMax]="offer.salaryMax"
+        [worktype]="offer.worktypes"
+        [experience]="offer.experiences"
+        [position]="offer.position"
+        [technology]="offer.technologies"
+        [companyName]="offer.user.displayName">
     </joboffer>
 </div>
 

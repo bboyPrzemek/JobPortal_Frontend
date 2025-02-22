@@ -6,7 +6,7 @@ export class JobOfferModel {
     location : String = '';
     position:  String = ''
     experiences : [] = [];
-    technologies : any = null;
+    technologies : [] = [];
     worktypes : [] = [];
 }
 
