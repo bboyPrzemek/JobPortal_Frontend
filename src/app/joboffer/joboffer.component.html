@@ -4,36 +4,32 @@
       <img src="/assets/images/logo.png" style="height:25px">
     </div>
     <div class="offer-details-container">
-        <span class="offer-title">{{title}}</span>
-        <div class="offer-details">
-            <span>{{companyName}} {{location}}</span>
-        </div>
+      <span class="offer-title">{{title}}</span>
+      <div class="offer-details">
+        <span>{{companyName}}</span>
+      </div>
+      <div class="offer-info">
+        <span class="m_r-10 location">
+          <img class="location-ico" src="assets/images/location-ico.svg">
+          <span>{{location}}</span>
+        </span>
+        <span class="slash m_r-10 worktype">
+          <span *ngFor="let wt of worktype">
+            {{wt.name}}
+          </span>
+        </span>
+        <span class="slash m_r-10 experience">
+          <span *ngFor="let e of experience">
+            {{e.name}}
+          </span>
+        </span>
+        <span class="m_r-10 position">
+          <span>{{position.name}}</span>
+        </span>
+      </div>
     </div>
-    <div class="worktypes flex-col">
-      <span *ngFor="let wt of worktype">
-        {{wt.name}}
-      </span>
-    </div>
-    <div class="experiences flex-col">
-      <span *ngFor="let e of experience">
-        {{e.name}}
-      </span>
-    </div>
-    <div class="technologies flex-col">
-      <span *ngFor="let t of technology">
-        {{t.name}}
-      </span>
-    </div>
-    <div class="experiences flex-col">
-      <span *ngFor="let e of experience">
-        {{e.name}}
-      </span>
-    </div>
-    <div class="position">
-        {{position.name}}
-    </div>
-    <div class="offer-info">
-       <span>{{salaryMin}}zł - {{salaryMax}}zł</span>
+    <div class="offer-salary">
+      <span>{{salaryMin}}zł - {{salaryMax}}zł</span>
     </div>
   </div>
 </div>
