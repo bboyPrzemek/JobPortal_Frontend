@@ -9,12 +9,14 @@ import { ManageOffersComponent } from '../manage-offers/manage-offers.component'
 import { AccountSettingsComponent } from '../account-settings/account-settings.component';
 import { AuthGuard } from '../auth.guard';
 import { CreateJobOfferComponent } from '../create-job-offer/create-job-offer.component';
+import { JobOfferDetailsComponent } from '../job-offer-details/job-offer-details.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch : 'full' },
   { path: 'login', component : SigninComponent },
   { path : 'register', component : RegisterComponent },
+  { path: 'offer/:id', component : JobOfferDetailsComponent},
   {path: 'admin', component : AdminpanelComponent , canActivate : [AuthGuard],
     children: [
       { path: 'manage', component: ManageOffersComponent },

@@ -1,6 +1,7 @@
 
 <div *ngFor="let offer of jobOffers" class="offer-container">
     <joboffer
+        [Id] = "offer.id"
         [title]=offer.title
         [location]="offer.location.city"
         [salaryMin]="offer.salaryMin"

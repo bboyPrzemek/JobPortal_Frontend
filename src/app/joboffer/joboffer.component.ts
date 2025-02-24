@@ -1,14 +1,16 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
 
 @Component({
   selector: 'joboffer',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './joboffer.component.html',
   styleUrl: './joboffer.component.css'
 })
 export class JobofferComponent {
+  @Input() Id = '';
   @Input() title = '';
   @Input() companyName = '';
   @Input() location = '';

@@ -1,4 +1,4 @@
-<div class="offer-element">
+<div class="offer-element" [routerLink]="['/offer/',Id]">
   <div class="offer-container">
     <div class="company-logo">
       <img src="/assets/images/logo.png" style="height:25px">
@@ -10,7 +10,7 @@
       </div>
       <div class="offer-info">
         <span class="m_r-10 location">
-          <img class="location-ico" src="assets/images/location-ico.svg">
+          <img class="location-ico" src="assets/images/icons/location-ico.svg">
           <span>{{location}}</span>
         </span>
         <span class="slash m_r-10 worktype">

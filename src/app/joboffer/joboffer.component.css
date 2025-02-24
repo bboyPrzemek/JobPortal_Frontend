@@ -31,6 +31,10 @@
     background-color: white;
 }
 
+.offer-element:hover{
+   cursor: pointer;
+}
+
 .offer-salary{
     width: 200px;
 }
